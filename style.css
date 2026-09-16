@@ -24,3 +24,20 @@ footer{padding:45px 0 70px;color:var(--muted);text-align:center}.reveal{opacity:
 @media(max-width:850px){.nav-links{display:none}.menu{display:block;margin-left:auto}.nav.open .nav-links{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:12px;border:1px solid var(--line);border-radius:18px}.grid{grid-template-columns:1fr}.members-preview{grid-template-columns:repeat(3,1fr)}.album-grid{grid-template-columns:1fr 1fr}.photo-grid{grid-template-columns:repeat(2,1fr)}.event-card{grid-template-columns:80px 1fr}.section-head{display:block}.section-head .sub{margin-top:8px}.capsule{grid-template-columns:1fr}}
 @media(max-width:500px){.members-preview{grid-template-columns:repeat(2,1fr)}.hero{min-height:82vh}.hero h1{font-size:6.5rem}.album-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* 901 v2 enhancements */
+.nav{animation:navDrop .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes navDrop{from{opacity:0;transform:translate(-50%,-18px)}to{opacity:1;transform:translate(-50%,0)}}
+.hero:before{content:"";position:absolute;width:min(70vw,720px);height:min(70vw,720px);border-radius:50%;border:1px solid rgba(101,216,255,.10);box-shadow:0 0 100px rgba(101,216,255,.08);animation:heroPulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes heroPulse{50%{transform:scale(1.05);opacity:.55}}
+.member-detail{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.avatar-lg{width:96px;height:96px;border-radius:30px;font-size:2rem}
+.album.selected{outline:2px solid var(--accent);outline-offset:3px;transform:translateY(-4px)}
+.upload-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin-top:14px}
+.upload-select{width:100%;border:1px solid var(--line);background:var(--glass);color:var(--text);border-radius:15px;padding:13px 15px;outline:none}
+.lightbox{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.88);backdrop-filter:blur(12px)}
+.lightbox.open{display:flex;animation:lightboxIn .25s ease both}
+@keyframes lightboxIn{from{opacity:0}to{opacity:1}}
+.lightbox img{max-width:min(94vw,1200px);max-height:88vh;object-fit:contain;border-radius:18px;box-shadow:0 30px 100px rgba(0,0,0,.55)}
+.close-lightbox{position:absolute;top:20px;right:20px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;border-radius:14px;padding:10px 14px;font-size:1.1rem}
+@media(max-width:650px){.upload-controls{grid-template-columns:1fr}.photo-grid{gap:10px}}
